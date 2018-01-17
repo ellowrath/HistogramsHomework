@@ -1,5 +1,5 @@
 =begin
-Creates a normal distrobution of 10,000 values, via the gaussian transform.
+Creates a normal distribution of 10,000 values, via the gaussian transform.
 Then creates a histogram of those values.
 =end
 
@@ -11,15 +11,13 @@ rand_values = []
 bin = Array.new(100) { 0 }
 highest_bin_index = 99
 
-(1..10_000).step do
-  rand_values.push(cos(2 * PI * rand) * CMath.sqrt(-2 * log(rand)))
-end
+(1..10_000).step { rand_values << (cos(2 * PI * rand) * CMath.sqrt(-2 * \
+log(rand))) }
 
 lowest_value = rand_values.min
 highest_minus_lowest = rand_values.max - lowest_value
 
-rand_values.each do |i|
-  bin[((i - lowest_value) / (highest_minus_lowest) * highest_bin_index).floor] += 1
-end
+rand_values.each { |i| bin[((i - lowest_value) / (highest_minus_lowest) * \
+highest_bin_index).floor] += 1 }
 
-puts bin
+p bin
