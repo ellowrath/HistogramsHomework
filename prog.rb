@@ -7,7 +7,7 @@ include Math
 require 'cmath'
 
 # setting up variables
-# seeding random (its not a security application, time is a fine seed)
+# seeding random
 srand Time.now.to_i
 rand_values = []
 bin = Array.new(100) { 0 }
